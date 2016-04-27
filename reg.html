@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>注册</title>
+
+    <!-- Bootstrap -->
+    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <link href="src/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="src/js/html5shiv.min.js"></script>
+    <script src="src/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+    <a class="navbar-brand" href="javascript:void(0);">
+        注册
+    </a>
+</nav>
+
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-md-3 col-xs-2"></div>
+            <div class="col-md-6 col-xs-8">
+                <div class="form-group">
+                    <label class="control-label" for="my-phone">手机号码</label>
+                    <input type="text" class="form-control" id="my-phone" placeholder="请输入11位手机号码">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="src/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="src/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+        var my_phone_element = $("#my-phone");
+        my_phone_element.css("ime-mode","disabled");
+
+        var my_phone_form_group_element = my_phone_element.parent();
+        function valid_phone_number(phone_number){
+            var phone_reg = /^\d{11}$/;
+            return phone_reg.test(phone_number);
+        }
+
+        function remove_form_froup_has_status(form_group_element){
+            if(form_group_element.hasClass("has-success")){
+                form_group_element.removeClass("has-success");
+            }
+            if(form_group_element.hasClass("has-warning")){
+                form_group_element.removeClass("has-warning");
+            }
+            if(form_group_element.hasClass("has-error")){
+                form_group_element.removeClass("has-error");
+            }
+        }
+        function set_form_group_has_error(form_group_element){
+            remove_form_froup_has_status(form_group_element);
+            form_group_element.addClass("has-error");
+        }
+        function set_form_group_has_success(form_group_element){
+            remove_form_froup_has_status(form_group_element);
+            form_group_element.addClass("has-success");
+        }
+        function set_form_group_has_warning(form_group_element){
+            remove_form_froup_has_status(form_group_element);
+            form_group_element.addClass("has-warning");
+        }
+
+        function remove_status_sign(input_element){
+            if(input_element.next().length!=0&&input_element.next().hasClass("glyphicon")){
+                input_element.next().remove();
+            }
+        }
+        function set_form_group_has_feedback(form_group_element){
+            if(!form_group_element.hasClass("has-feedback")){
+                form_group_element.addClass("has-feedback");
+            }
+        }
+        function add_success_sign(input_element){
+            set_form_group_has_feedback(input_element.parent());
+            remove_status_sign(input_element);
+            input_element.after('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>');
+        }
+        function add_error_sign(input_element){
+            set_form_group_has_feedback(input_element.parent());
+            remove_status_sign(input_element);
+            input_element.after('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
+        }
+        function add_warn_sign(input_element){
+            set_form_group_has_feedback(input_element.parent());
+            remove_status_sign(input_element);
+            input_element.after('<span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>');
+        }
+
+        function remove_help_block(form_group_element){
+            if(form_group_element.find(":last-child").hasClass("help-block")){
+                form_group_element.find(":last-child").remove();
+            }
+        }
+
+        function add_help_block(form_group_element,text){
+            remove_help_block(form_group_element);
+            form_group_element.find(":last-child").after('<span class="help-block">'+text+'</span>');;
+        }
+        function valid_my_phone_number(){
+            return valid_phone_number(my_phone_element.val());
+        }
+        my_phone_element.blur(function(){
+            if(valid_my_phone_number()){
+                add_success_sign(my_phone_element);
+                set_form_group_has_success(my_phone_form_group_element);
+                remove_help_block(my_phone_form_group_element);
+                return;
+            }
+            add_error_sign(my_phone_element);
+            set_form_group_has_error(my_phone_form_group_element);
+            add_help_block(my_phone_form_group_element,"电话号码应为11位数字");
+        });
+    });
+</script>
+
+</body>
+
+</html>
