@@ -1,0 +1,64 @@
+body {
+	background-color: #eee;
+	font-size: 14px;
+}
+.row.block {
+	background-color: #fff;
+	margin-bottom: 15px;
+	padding: 25px 0;
+}
+.row>.logo {
+	text-align: center;
+}
+.row>.logo>p {
+	font-size: 24px;
+	color: rgb(0, 180, 240);
+	margin-top: 8px;
+	margin-bottom: 0;
+}
+.row>.checkboxes input {
+	display: none;
+}
+.row p.lab {
+	font-weight: 900;
+	margin: 0;
+}
+.row>.checkboxes>.checkbox-inline {
+	color: rgb(69, 159, 231);
+	margin: 10px 8px 0 0;
+	min-width: 30%;
+	text-align: center;
+	padding-right: 10px;
+	border-radius: 15px;
+	border: 1px solid rgb(69, 159, 231);
+}
+.row>.checkboxes>.checkbox-inline>span {
+	margin-left: -10px;
+}
+.row>.checkboxes>label.selected {
+	background-color: rgb(69, 159, 231);
+	color: #fff;
+}
+#remark {
+	width: 100%; 
+	border: none; 
+	resize: none;
+}
+#remark:focus {
+	-moz-outline-style: none;
+	outline: none;
+}
+button.submit, button.submit:hover, button.submit:focus {
+	background-color: rgb(69, 159, 231);
+}
+.row.foot {
+	width: 100%;
+	text-align: center;
+	position:fixed;
+	bottom:0;
+	color: #ccc;
+}
+#result-modal .modal-dialog {
+	text-align: center;
+	margin-top: 200px;
+}

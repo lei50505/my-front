@@ -1,0 +1,7 @@
+body {
+    background-color: #eee;
+}
+.row input[type=button]{
+    padding: 50px;
+    font-size: 20px;
+}

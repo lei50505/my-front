@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap</title>
+    <title>主页</title>
 
     <!-- Bootstrap -->
     <link href="src/css/bootstrap.min.css" rel="stylesheet">
@@ -18,30 +18,23 @@
     <script src="src/js/respond.min.js"></script>
     <![endif]-->
 
-    <link href="src/css/index.css" rel="stylesheet">
 
 </head>
 
 <body>
 <nav class="navbar navbar-default">
     <a class="navbar-brand" href="javascript:void(0);">
-        请选择
+        主页
     </a>
 </nav>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <input type="button" class="btn btn-primary btn-block" onclick="window.location='staff_login.html'" value="配送员入口" >
-        </div>
-        <div class="col-xs-12">
-           <p>&nbsp;</p>
-        </div>
-        <div class="col-xs-12">
-            <input type="button" class="btn btn-primary btn-block" onclick="window.location='boss_login.html'" value="餐厅老板入口" >
-        </div>
-    </div>
-</div>
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#a01" data-toggle="tab">a01</a>
+    </li>
+    <li><a href="#a02" data-toggle="tab">a02</a> </li>
+</ul>
+<div class=""
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="src/js/jquery.min.js"></script>

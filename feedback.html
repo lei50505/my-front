@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>蜂鸟配送用户服务中心</title>
+
+    <!-- Bootstrap -->
+    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <link href="src/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="src/js/html5shiv.min.js"></script>
+    <script src="src/js/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="src/css/feedback.css" />
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row block">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 logo">
+            <img src="src/img/logo.png" alt="logo" width="100px" height="100px">
+            <p>投诉&反馈</p>
+        </div>
+    </div>
+    <div class="row block">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 checkboxes">
+            <p class="lab">投诉原因：</p>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="feedback_type" value="1">
+                <span>配送速度慢</span>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="feedback_type" value="2">
+                <span>菜品撒汤了</span>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="feedback_type" value="3">
+                <span>配送员态度差</span>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="feedback_type" value="4">
+                <span>没有收到餐</span>
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="feedback_type" value="5">
+                <span>其他</span>
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <hr>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p class="lab">备注：</p>
+            <textarea id="remark" rows="3" placeholder="请描述你的问题或建议，我们将及时跟进与解决。"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <button class="btn btn-info btn-block submit">确定</button>
+        </div>
+    </div>
+    <div class="row foot">
+        <span>@蜂鸟配送</span>
+    </div>
+</div>
+<div id="result-modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p style="font-weight: bolder;">非常感谢</p>
+                <p style="margin: 0;">很抱歉给您的用餐带来了不便</p>
+                <p>您的反馈我们已受理</p>
+                <p style="margin: 0;">如果需要人工服务请拨打</p>
+                <p><a href="tel:10105757" >10105757</a>转3</p>
+            </div>
+            <div class="modal-footer" style="text-align: center;">
+                <button type="button" class="btn btn-link" style="padding: 0;">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="src/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="src/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("input[name='feedback_type']").click(function() {
+            $(this).parent().toggleClass('selected');
+        });
+    });
+</script>
+</body>
+
+</html>
