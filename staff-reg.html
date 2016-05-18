@@ -8,14 +8,14 @@
     <title>配送员注册</title>
 
     <!-- Bootstrap -->
-    <link href="src/css/bootstrap.min.css" rel="stylesheet">
-    <link href="src/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="src/css/common/bootstrap.min.css" rel="stylesheet">
+    <link href="src/css/common/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="src/js/html5shiv.min.js"></script>
-    <script src="src/js/respond.min.js"></script>
+    <script src="src/js/common/html5shiv.min.js"></script>
+    <script src="src/js/common/respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -36,31 +36,39 @@
                 <div class="form-group">
                     <label class="control-label" for="fb-user-name">真实姓名</label>
                     <input type="text" class="form-control" id="fb-user-name" placeholder="请输入真实姓名">
+                    <span class="help-block">姓名应为2-10位</span>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label" for="fb-user-password">密码</label>
                     <input type="password" id="fb-user-password" class="form-control" placeholder="请输入密码">
+                    <span class="help-block">密码应为6-16位</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="fb-user-password2">再输一次</label>
                     <input type="password" id="fb-user-password2" class="form-control" placeholder="请再请输入一次">
+                    <span class="help-block">密码应为6-16位</span>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="fb-user-phone">手机号码</label>
                     <input type="text" class="form-control" id="fb-user-phone" placeholder="请输入11位手机号码">
+                    <span class="help-block">手机号码应为11位数字</span>
+                </div>
+                <div class="form-group">
+                    <input type="button" class=" btn btn-sm btn-default" id="fb-sign-btn" value="点击获取验证码">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="fb-sign">验证码</label>
                     <input type="text" class="form-control" id="fb-sign" placeholder="请输入验证码">
+                    <span class="help-block">验证码为6位数字</span>
                 </div>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-xs-6">
-                            <input type="button" class="form-control btn btn-primary" value="注册">
+                            <input type="button" id="fb-reg-btn" class="form-control btn btn-primary" value="注册">
                         </div>
                         <div class="col-xs-6">
-                            <input type="button" class="form-control btn btn-link" value="返回">
+                            <input type="button" class="form-control btn btn-link" onclick="window.location='staff-login.html'" value="返回">
                         </div>
                     </div>
                 </div>
@@ -72,9 +80,16 @@
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="src/js/jquery.min.js"></script>
+<script src="src/js/common/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="src/js/bootstrap.min.js"></script>
+<script src="src/js/common/bootstrap.min.js"></script>
+
+
+<script src="src/js/common/md5.js"></script>
+<script src="src/js/app.js"></script>
+<script src="src/js/config.js"></script>
+<script src="src/js/input.js"></script>
+<script src="src/js/staff-reg.js"></script>
 
 </body>
 
