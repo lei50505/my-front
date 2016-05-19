@@ -85,45 +85,8 @@ $(function () {
 
     pswElement2.blur(checkPsw2);
 
-    var validPhone={};
 
-    function phoneAjax(){
-        var reg = /^\d{11}$/;
-        var successText = "格式正确";
-        var errorText = "手机号码应为11位数字";
-        if( !checkElement(phoneElement, reg, successText, errorText)){
-            validPhone[phoneElement.val()]=1;
-            return;
-        }
-        $.ajax({
-            url: "http://" + serviceHost + ":" + servicePort + "/my-feedback/user/phone/exist/" + phoneElement.val(),
-            type: "GET",
-            dataType: "json",
-            data: null,
-            async:false,
-            beforeSend: function () {
-            },
-            success: function (data) {
-                switch (data.code) {
-                    case 20000:
-                        if(data.data){
-                            setElementError(phoneElement,"电话号码已存在");
-                            validPhone[phoneElement.val()]=2;
-                            return;
-                        }
-                        setElementSuccess(phoneElement,"格式正确");
-                        validPhone[phoneElement.val()]=0;
-                        return;
-                    default :
-                        setElementError(phoneElement,"服务器异常");
-                        validPhone[phoneElement.val()]=3;
-                        return;
-                }
-            },
-            complete: function () {
-            }
-        });
-    }
+
 
 
 
