@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>餐厅老板注册</title>
+
+    <!-- Bootstrap -->
+    <link href="src/css/common/bootstrap.min.css" rel="stylesheet">
+    <link href="src/css/common/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="src/js/common/html5shiv.min.js"></script>
+    <script src="src/js/common/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+    <a class="navbar-brand" href="javascript:void(0);">
+        餐厅老板注册
+    </a>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2 col-md-3"></div>
+        <div class="col-xs-8 col-md-6">
+
+            <div class="form-group">
+                <label class="control-label" for="fb-shop-name">餐厅名称</label>
+                <input type="text" class="form-control" id="fb-shop-name" placeholder="请输入餐厅名称">
+                <span class="help-block">餐厅名称应为1-30位</span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="fb-shop-phone">餐厅电话</label>
+                <input type="text" class="form-control" id="fb-shop-phone" placeholder="请输入餐厅电话">
+                <span class="help-block">餐厅电话7-30位</span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="fb-shop-address">餐厅地址</label>
+                <input type="text" class="form-control" id="fb-shop-address" placeholder="请输入餐厅地址">
+                <span class="help-block">餐厅地址3-200字</span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="fb-shop-email">餐厅邮箱</label>
+                <input type="text" class="form-control" id="fb-shop-email" placeholder="请输入餐厅邮箱">
+                <span class="help-block">餐厅邮箱用于登录</span>
+            </div>
+
+            <div class="form-group">
+                <input type="button" class=" btn btn-sm btn-default" id="fb-sign-btn" value="点击获取验证码">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="fb-sign">验证码</label>
+                <input type="text" class="form-control" id="fb-sign" placeholder="请输入验证码">
+                <span class="help-block">验证码为6位数字</span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="fb-shop-password">密码</label>
+                <input type="password" id="fb-shop-password" class="form-control" placeholder="请输入密码">
+                <span class="help-block">密码应为6-16位</span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="fb-shop-password2">再输一次</label>
+                <input type="password" id="fb-shop-password2" class="form-control" placeholder="请再请输入一次">
+                <span class="help-block">密码应为6-16位</span>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input type="button" id="fb-reg-btn" class="form-control btn btn-primary" value="注册">
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="button" class="form-control btn btn-link"
+                               onclick="window.location='boss-login.html'" value="返回">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-2 col-md-3"></div>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="src/js/common/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="src/js/common/bootstrap.min.js"></script>
+
+<script src="src/js/common/md5.js"></script>
+<script src="src/js/common.js"></script>
+<script src="src/js/input.js"></script>
+<script src="src/js/boss-reg.js"></script>
+
+
+</body>
+
+</html>

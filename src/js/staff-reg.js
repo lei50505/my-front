@@ -40,6 +40,47 @@ $(function () {
 
     }
 
+    var phoneElement = $("#fb-user-phone");
+    function validPhoneFormat(){
+        var reg = /^\d{11}$/;
+        var successText = "手机号码格式正确";
+        var errorText = "手机号码应为11位数字";
+        return checkElement(phoneElement, reg, successText, errorText);
+    }
+
+    function checkPhoneAjax(){
+        $.ajax({
+            url: "http://" + serviceHost + ":" + servicePort + "/my-feedback/user/phone/exist/" + phoneElement.val(),
+            type: "GET",
+            dataType: "json",
+            data: null,
+            async:true,
+            beforeSend: function () {
+            },
+            success: function (data) {
+                switch (data.code) {
+                    case 20000:
+                        if(data.data){
+                            setElementError(phoneElement,"手机号码已存在");
+                            return;
+                        }
+                        setElementSuccess(phoneElement,"手机号码可用");
+                        return;
+                    default :
+                        setElementError(phoneElement,"服务器异常");
+                        return;
+                }
+            },
+            complete: function () {
+            }
+        });
+    }
+    phoneElement.blur(function(){
+        if(validPhoneFormat()){
+            checkPhoneAjax();
+        }
+    });
+
 
 
     pswElement2.blur(checkPsw2);
@@ -85,31 +126,6 @@ $(function () {
     }
 
 
-    var phoneElement = $("#fb-user-phone");
-    function checkPhone() {
-        if(!validPhone.hasOwnProperty(phoneElement.val())){
-            phoneAjax();
-
-        }
-        switch (validPhone[phoneElement.val()]) {
-            case 0:
-                setElementSuccess(phoneElement,"格式正确");
-                return true;
-            case 1:
-                setElementError(phoneElement,"手机号码应为11位数字");
-                return false;
-            case 2:
-                setElementError(phoneElement,"电话号码已存在");
-                return false;
-            case 3:
-                setElementError(phoneElement,"服务器异常");
-                return false;
-        }
-
-
-    }
-
-    phoneElement.blur(checkPhone);
 
     var signElement = $("#fb-sign");
 
@@ -124,14 +140,8 @@ $(function () {
 
     var signBtn = $("#fb-sign-btn");
 
-    function signBtnTimeoutFun() {
-        signBtn.toggleClass("disabled");
-        signBtn.val("点击获取验证码");
-        signBtn.click(signBtnClickFun);
-    }
-
     function signBtnClickFun() {
-        if (!checkPhone()) {
+        if (!validPhoneFormat()) {
             return;
         }
         $.ajax({
@@ -142,16 +152,21 @@ $(function () {
             beforeSend: function () {
                 signBtn.unbind("click");
                 signBtn.toggleClass("disabled");
-                signBtn.val("发送成功，60秒后可以再次获取");
-                setTimeout(signBtnTimeoutFun, 60000);
+                signBtn.val("发送成功，10秒后可以再次获取");
+                setTimeout(function(){
+                    signBtn.toggleClass("disabled");
+                    signBtn.val("点击获取验证码");
+                    signBtn.click(signBtnClickFun);
+                }, 10000);
             },
             success: function (data) {
                 switch (data.code) {
                     case 20000:
-                        break;
-                    case 20001:
-                        signBtn.val("发送成功，60秒后可以再次获取(" + data.data + ")");
-                        break;
+                        signBtn.val("发送成功，10秒后可以再次获取(" + data.data + ")");
+                        return;
+                    default :
+                        setElementError(phoneElement,data.message);
+                        return;
                 }
             },
             complete: function () {
@@ -163,7 +178,7 @@ $(function () {
 
     var regBtn = $("#fb-reg-btn");
 
-    function checkParam() {
+    function validParamFormat() {
         var flag = 1;
         if (!checkName()) {
             flag = 0;
@@ -174,7 +189,7 @@ $(function () {
         if (!checkPsw2()) {
             flag = 0;
         }
-        if (!checkPhone()) {
+        if (!validPhoneFormat()) {
             flag = 0;
         }
         if (!checkSign()) {
@@ -184,9 +199,7 @@ $(function () {
     }
 
     function regBtnClickFun() {
-
-
-        if (!checkParam()) {
+        if (!validParamFormat()) {
             return;
         }
         var rawPsw = pswElement.val();
@@ -209,11 +222,14 @@ $(function () {
                 regBtn.val("请稍候");
             },
             success: function (data) {
-                if (data.code != 20000) {
-                    alert(data.message);
-                    return;
+                switch (data.code){
+                    case 20000:
+                        window.location.href="staff-login.html";
+                        return;
+                    default :
+                        alert(data.message);
+                        return;
                 }
-                window.location.href="staff-login.html";
             },
             complete: function () {
                 regBtn.toggleClass("disabled");
@@ -221,7 +237,6 @@ $(function () {
                 regBtn.val("注册");
             }
         });
-
     }
     regBtn.click(regBtnClickFun);
 });

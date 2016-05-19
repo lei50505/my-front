@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     (function () {
         var token = getCookie("staff-token");
         if (token == null || token == "") {

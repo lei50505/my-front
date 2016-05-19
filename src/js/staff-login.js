@@ -4,25 +4,13 @@ $(function () {
 
     (function(){
 
-        var token = getCookie("token");
+        var token = getCookie("staff-token");
 
         if(token==null||token==""){
             $("#fb-main").removeClass("invisible");
             return;
         }
-
-        if(getCookie(token)==null||getCookie(token)==""){
-            checkTokenAjaxFun(token);
-        }
-        if(getCookie(token)=="true"){
-
-            window.location.href="staff-index.html";
-            return;
-        }
-        if(getCookie(token)=="false"){
-            logout(token);
-            $("#fb-main").removeClass("invisible");
-        }
+        window.location.href="staff-index.html";
     })();
 
 
@@ -69,14 +57,14 @@ $(function () {
                     case 20000:
                         if (savePswFlag) {
 
-                            setCookieExprDays("token", data.data, 7);
+                            setCookieExprDays("staff-token", data.data, 7);
                         } else {
-                            setCookie("token", data.data);
+                            setCookie("staff-token", data.data);
                         }
                         window.location.href = "staff-index.html";
                         return;
                     default :
-                        alert(data.data);
+                        alert(data.message);
                         return;
                 }
             },

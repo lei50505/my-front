@@ -1,3 +1,12 @@
+var serviceHost="127.0.0.1";
+var servicePort=8080;
+function encodePsw(psw) {
+    var md5Psw = md5(psw);
+    for (var i = 0; i < 2; i++) {
+        md5Psw = md5(md5Psw);
+    }
+    return md5Psw;
+}
 function setCookieExprMs(key, value, exprMs){
     var cookieStr = key+"="+encodeURIComponent(value);
     var date = new Date();
