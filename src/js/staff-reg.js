@@ -129,7 +129,7 @@ $(function () {
             beforeSend: function () {
                 signBtn.unbind("click");
                 signBtn.toggleClass("disabled");
-                signBtn.val("发送成功，10秒后可以再次获取");
+                signBtn.val("请稍候...");
                 setTimeout(function(){
                     signBtn.toggleClass("disabled");
                     signBtn.val("点击获取验证码");
