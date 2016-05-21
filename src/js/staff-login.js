@@ -1,16 +1,18 @@
 $(function () {
 
-
-
     (function(){
+        var bossToken = getBossToken();
+        var staffToken = getStaffToken();
 
-        var token = getCookie("staff-token");
-
-        if(token==null||token==""){
-            $("#fb-main").removeClass("invisible");
+        if(bossToken!=null){
+            window.location.href="boss-info.html";
             return;
         }
-        window.location.href="staff-index.html";
+        if(staffToken!=null){
+            window.location.href="staff-info.html";
+            return;
+        }
+        $("#main").removeClass("invisible");
     })();
 
 
@@ -57,11 +59,11 @@ $(function () {
                     case 20000:
                         if (savePswFlag) {
 
-                            setCookieExprDays("staff-token", data.data, 7);
+                            setStaffToken(data.data,7);
                         } else {
-                            setCookie("staff-token", data.data);
+                            setStaffToken(data.data);
                         }
-                        window.location.href = "staff-index.html";
+                        window.location.href = "staff-info.html";
                         return;
                     default :
                         alert(data.message);

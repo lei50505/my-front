@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>Bootstrap</title>
+    <title>个人信息</title>
 
     <!-- Bootstrap -->
     <link href="src/css/common/bootstrap.min.css" rel="stylesheet">
@@ -21,54 +21,56 @@
 </head>
 
 <body>
+
+
 <nav class="navbar navbar-default">
-    <a class="navbar-brand" href="javascript:void(0);">
-        请选择
-    </a>
-
-    <div class="container-fluid">
-
-        <p class="navbar-text navbar-right"><a class="navbar-link" href="javascript:void(0);" id="fb-logout">退出</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </p>
-
-
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#my-navbar" aria-expanded="false">
+            <span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0);" >
+            Feedback
+        </a>
+    </div>
+    <div class="collapse navbar-collapse" id="my-navbar">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="javascript:void(0);">店铺信息</a></li>
+            <li><a href="boss-feedback.html">收到的反馈</a></li>
+            <li><a href="boss-task.html">定时任务</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li ><a href="javascript:void(0);" id="logout">
+                退出
+            </a></li>
+        </ul>
     </div>
 </nav>
 
-<div id="fb-main" class="container invisible">
+<div class="container invisible" id="main">
     <div class="row">
         <div class="col-xs-2 col-md-3"></div>
         <div class="col-xs-8 col-md-6">
 
 
-            <div class="form-group">
-                <label class="control-label" for="fb-user-phone">手机号码</label>
-                <input type="text" class="form-control" id="fb-user-phone" placeholder="请输入11位手机号码">
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <input type="button" class="form-control btn btn-primary" value="确认">
-                    </div>
-                    <div class="col-xs-6">
-                        <input type="button" class="form-control btn btn-link"
-                               onclick="window.location='staff-index.html'" value="返回">
-                    </div>
-                </div>
-            </div>
 
         </div>
         <div class="col-xs-2 col-md-3"></div>
     </div>
 </div>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="src/js/common/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="src/js/common/bootstrap.min.js"></script>
 
+<script src="src/js/common/md5.js"></script>
 <script src="src/js/common.js"></script>
-<script src="src/js/distribution.js"></script>
-
+<script src="src/js/input.js"></script>
+<script src="src/js/boss-info.js"></script>
 
 </body>
 
