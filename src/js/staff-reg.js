@@ -129,7 +129,7 @@ $(function () {
             beforeSend: function () {
                 signBtn.unbind("click");
                 signBtn.toggleClass("disabled");
-                signBtn.val("请稍候...");
+                signBtn.val("10秒后重试");
                 setTimeout(function(){
                     signBtn.toggleClass("disabled");
                     signBtn.val("点击获取验证码");
@@ -139,7 +139,7 @@ $(function () {
             success: function (data) {
                 switch (data.code) {
                     case 20000:
-                        signBtn.val("发送成功，10秒后可以再次获取(" + data.data + ")");
+                        signBtn.val("发送成功(" + data.data + ")");
                         return;
                     default :
                         setElementError(phoneElement,data.message);
