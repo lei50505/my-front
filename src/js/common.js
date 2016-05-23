@@ -1,4 +1,4 @@
-var serviceHost = "144.168.63.86";
+var serviceHost = "ti19.com";
 var servicePort = 8080;
 function encodePsw(psw) {
     var md5Psw = md5(psw);
