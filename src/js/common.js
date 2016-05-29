@@ -29,15 +29,35 @@ function setStaffToken(token,days) {
             break;
     }
 }
+function staffLogin(){
+    delToken();
+    window.location.href="staff-login.html";
+}
 function delToken(){
     delCookie("staff-token");
     delCookie("boss-token");
+}
+function logout(){
+    delToken();
+    window.location.href="index.html";
 }
 function getBossToken() {
     return getCookie("boss-token");
 }
 function getStaffToken() {
     return getCookie("staff-token");
+}
+function staffTokenNotNull(){
+    if(getStaffToken()==null){
+        window.location.href="staff-login.html";
+        return;
+    }
+}
+function bossTokenIsNull(){
+    if(getBossToken()!=null){
+        window.location.href="boss-info.html";
+        return;
+    }
 }
 function setCookieExprMs(key, value, exprMs) {
     var cookieStr = key + "=" + encodeURIComponent(value);
